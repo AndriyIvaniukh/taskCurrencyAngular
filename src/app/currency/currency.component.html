@@ -1,0 +1,29 @@
+<div *ngIf="isSuccess">
+
+  <div class="header">
+      <div> USD: {{(1 / currenciesByUAH[CurrencyType.USD]) | number:'1.2-2' }}</div>
+      <div> EUR: {{(1 / currenciesByUAH[CurrencyType.EUR]) | number:'1.2-2' }}</div>
+  </div>
+
+  <div class="currencyCalculatorModule">
+  <div class="CurrencyBox">
+    <input type="number" min="0" (change)="changeInput($event, InputType.FIRST)" value="{{firstInput.value}}">
+    <select #selectF (change)="changeSelect(selectF.value, InputType.FIRST)">
+      <option *ngFor="let key of Object.keys(CurrencyType)" value="{{key}}">
+        {{key}}
+      </option>
+    </select>
+  </div>
+
+    <h3>exchange</h3>
+
+  <div class="CurrencyBox">
+    <input type="number" min="0" (change)="changeInput($event, InputType.SECOND)" value="{{secondInput.value}}">
+    <select #selectS (change)="changeSelect(selectS.value, InputType.SECOND)">
+      <option *ngFor="let key of Object.keys(CurrencyType)" value="{{key}}" >
+        {{key}}
+      </option>
+    </select>
+  </div>
+  </div>
+</div>
