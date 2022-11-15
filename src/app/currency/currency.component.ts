@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
+import { environment } from "../../environments/environment";
+
 enum CurrenciesEnum {
   USD='USD',
   EUR='EUR',
@@ -58,7 +60,7 @@ export class CurrencyComponent implements OnInit {
   }
 
   getCurrencies(): void{
-    this.httpClient.get<any>('https://api.exchangerate.host/latest?base=UAH')
+    this.httpClient.get<any>(environment.API_URL)
       .subscribe(response => {
         this.currenciesByUAH = response.rates as ICurrencies;
         this.isSuccess = true;

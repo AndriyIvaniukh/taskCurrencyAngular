@@ -20,7 +20,7 @@
   <div class="CurrencyBox">
     <input type="number" min="0" (change)="changeInput($event, InputType.SECOND)" value="{{secondInput.value}}">
     <select #selectS (change)="changeSelect(selectS.value, InputType.SECOND)">
-      <option *ngFor="let key of Object.keys(CurrencyType)" value="{{key}}" >
+      <option *ngFor="let key of Object.keys(CurrencyType)" value="{{key}}">
         {{key}}
       </option>
     </select>
